@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-top: 15px;
+      }
+
+      input, select, textarea {
+        width: 95%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .error {
+        color: red;
+        font-size: 12px;
+        display: none;
+      }
+
+      .form {
+        display: flex;
+        margin-top: 20px;
+      }
+
+      button{
+        background-color: #d46c2b;
+        color: white;
+        border: none;
+        border-radius: 15px;
+        height : 35px;
+        width : 150px;
+        margin-right: 40px;
+        transition: transform 0.1s;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Already have an Account? Want to Sign In?</h1>
+        <form id="registrationForm" onsubmit="return(validation())">
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email">
+          <span class="error" id="emailError"></span>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password">
+          <span class="error" id="passwordError"></span>
+
+          <div class="form">
+            <button type="submit">Login</button>
+          </div>
+        </form>
+    </div>
+    
+    <script>
+        function showAlert() {
+          confirm("Do you want to Submit the form?")
+          alert("Form submitted successfully!");
+          }
+
+        function validation() {
+          var flag = true;
+            
+            if(document.getElementById("email").value=="")
+            {document.getElementById("emailError").innerHTML="Email cannot be left blank";
+            document.getElementById("emailError").style.display = "block";
+            flag=false;
+            }
+            else{
+            document.getElementById("emailError").innerHTML="";
+            document.getElementById("emailError").style.display = "none";
+            }
+
+            if(document.getElementById("password").value=="")
+            {document.getElementById("passwordError").innerHTML="Password cannot be left blank";
+            document.getElementById("passwordError").style.display = "block";
+            flag=false;
+            }
+            else{
+            document.getElementById("passwordError").innerHTML="";
+            document.getElementById("passwordError").style.display = "none";
+            }
+
+           
+            if (flag) {
+                showAlert();
+            }
+
+            
+            return flag;
+        }
+        
+    </script>
+</body>
+</html>
+        
